@@ -109,14 +109,14 @@ export const alsoCovered = {
 export const equipment: Item = {
   id: "3d-models",
   title: "Industrial equipment modules",
-  body: "Highly detailed 3D models of industrial machinery equipment modules, designed within the team. Shown: a load-bearing part modelled for 3D printing in PLA.",
+  body: "Highly detailed 3D models of industrial machinery equipment modules, designed within the team. Shown: a dimensioned section of a load-bearing part modelled for 3D printing in PLA.",
   tags: ["3D modelling", "3D printing", "Industrial machinery", "Equipment modules"],
   seed: 67,
   palette: ["#44403c", "#a8a29e", "#f59e0b"],
   media: {
     kind: "image",
-    src: "/images/3d-printed-part.png",
-    alt: "Render of a 3D-printed equipment part",
+    src: "/images/3d-printed-part-section.png",
+    alt: "Dimensioned cross-section drawing of a 3D-printed equipment part, 115 mm tall overall",
     fit: "contain",
     background: "#f4f2ee",
   },

@@ -320,8 +320,22 @@ h3 {
   transition: transform 0.6s ease;
 }
 
-.visual--contain > img {
-  object-fit: contain;
+/* Images with fit: "contain" keep their own proportions instead of the
+   card's fixed frame, so detailed drawings stay readable. */
+.visual--contain,
+.card--wide .visual--contain {
+  aspect-ratio: auto;
+}
+
+.visual--contain > a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.visual--contain img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .card:hover .visual > svg {
@@ -368,6 +382,9 @@ h3 {
   .card--wide .visual {
     flex: 1.3;
     aspect-ratio: 16 / 10;
+  }
+  .card--wide .visual--contain {
+    aspect-ratio: auto;
   }
   .card--wide .card__body {
     flex: 1;

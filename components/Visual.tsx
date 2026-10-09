@@ -18,9 +18,14 @@ export default function Visual({ media, seed, palette, className = "" }: Props) 
       className={`visual${contain ? " visual--contain" : ""} ${className}`}
       style={media.kind === "image" && media.background ? { background: media.background } : undefined}
     >
-      {media.kind === "image" && (
-        <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
-      )}
+      {media.kind === "image" &&
+        (contain ? (
+          <a href={media.src} target="_blank" rel="noopener" title="Open full size">
+            <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
+          </a>
+        ) : (
+          <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
+        ))}
       {media.kind === "model" && <ModelViewer src={media.src} alt={media.alt} poster={media.poster} />}
       {media.kind === "placeholder" && <PolyArt seed={seed} palette={palette} />}
     </div>
