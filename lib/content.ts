@@ -23,7 +23,7 @@ export type Item = {
   seed: number;
   palette: Palette;
   media: Media;
-  link?: { href: string; label: string };
+  links?: { href: string; label: string }[];
 };
 
 export type Group = {
@@ -45,6 +45,7 @@ export type Section = {
 const placeholder: Media = { kind: "placeholder" };
 
 export const OCEANAMI_URL = "https://oceanami.vutecksolution.com/oceanami";
+export const AGODA_URL = "https://www.agoda.com/oceanami-villa-b1401/hotel/vung-tau-vn.html";
 
 export const sections: Section[] = [
   {
@@ -58,12 +59,15 @@ export const sections: Section[] = [
           {
             id: "web-setup",
             title: "Homestay web setup",
-            body: "Two web apps on one cloud instance, each with its own domain, plus a Google Business Profile and Booking.com policies.",
-            tags: ["Web apps", "Domains", "Google Business Profile", "Booking.com"],
+            body: "Two web apps on one cloud instance, each with its own domain, plus a Google Business Profile and Agoda policies.",
+            tags: ["Web apps", "Domains", "Google Business Profile", "Agoda"],
             seed: 23,
             palette: ["#155e75", "#38bdf8", "#a7f3d0"],
             media: placeholder,
-            link: { href: OCEANAMI_URL, label: "Visit Oceanami" },
+            links: [
+              { href: OCEANAMI_URL, label: "Visit Oceanami" },
+              { href: AGODA_URL, label: "View on Agoda" },
+            ],
           },
           {
             id: "virtual-tour",

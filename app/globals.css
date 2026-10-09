@@ -364,9 +364,14 @@ h3 {
   color: var(--muted);
 }
 
-.card__link {
-  justify-self: start;
+.card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
   margin-top: 4px;
+}
+
+.card__link {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;

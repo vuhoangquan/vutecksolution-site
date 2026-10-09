@@ -14,10 +14,14 @@ function Card({ item, wide = false }: { item: Item; wide?: boolean }) {
             <li key={t}>{t}</li>
           ))}
         </ul>
-        {item.link && (
-          <a className="card__link" href={item.link.href}>
-            {item.link.label} ↗
-          </a>
+        {item.links && (
+          <div className="card__links">
+            {item.links.map((l) => (
+              <a key={l.href} className="card__link" href={l.href}>
+                {l.label} ↗
+              </a>
+            ))}
+          </div>
         )}
       </div>
     </article>
