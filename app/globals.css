@@ -276,9 +276,16 @@ h3 {
   gap: 20px;
 }
 
+.group + .group {
+  margin-top: 20px;
+}
+
 @media (min-width: 720px) {
   .grid--2 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--2 .visual:not(.visual--contain) {
+    aspect-ratio: 16 / 9;
   }
   .grid--3 {
     grid-template-columns: repeat(2, 1fr);

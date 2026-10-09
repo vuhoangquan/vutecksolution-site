@@ -3,12 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vutecksolution.com"),
-  title: "vutecksolution: homestay automation, robotics and 3D equipment models",
+  title: "vutecksolution: software and hardware",
   description:
-    "What we have been building: smart home automation, a web setup and a 360° tour for a homestay, a robot arm and a DIY robot vacuum, and detailed 3D models of industrial equipment.",
+    "Digital transformation for small firms: websites, back office and domain-specific business operations. Plus smart home automation, robotics and 3D equipment models.",
   openGraph: {
     title: "vutecksolution",
-    description: "Homestay automation, robotics and 3D equipment models.",
+    description: "Software and hardware: digital transformation for small firms, smart home automation, robotics and 3D equipment models.",
     url: "/",
     type: "website",
   },

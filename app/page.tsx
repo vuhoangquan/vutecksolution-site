@@ -1,6 +1,6 @@
 import PolyArt from "@/components/PolyArt";
 import Visual from "@/components/Visual";
-import { alsoCovered, equipment, hero, OCEANAMI_URL, sections, type Item } from "@/lib/content";
+import { hero, OCEANAMI_URL, sections, type Item } from "@/lib/content";
 
 function Card({ item, wide = false }: { item: Item; wide?: boolean }) {
   return (
@@ -45,9 +45,8 @@ export default function Home() {
           vutecksolution
         </a>
         <nav aria-label="Sections">
-          <a href="#homestay">Homestay</a>
-          <a href="#robotics">Robotics</a>
-          <a href="#3d-models">3D models</a>
+          <a href="#software">Software</a>
+          <a href="#hardware">Hardware</a>
           <a className="nav__ext" href={OCEANAMI_URL}>
             Oceanami ↗
           </a>
@@ -60,14 +59,14 @@ export default function Home() {
           <div className="hero__inner">
             <p className="kicker">What we have been building</p>
             <h1>
-              Homestay automation, <span>robotics</span> and 3D equipment models.
+              <span>Software</span> and hardware.
             </h1>
             <p className="lede">
-              ESP32 sensors and Home Assistant for a homestay, a robot arm whose moves a cloud LLM plans, a DIY robot vacuum,
-              and highly detailed models of industrial machinery.
+              Digital transformation for small firms, plus smart home automation, robotics and detailed 3D equipment
+              models.
             </p>
             <div className="hero__links">
-              <a className="btn" href="#homestay">
+              <a className="btn" href="#software">
                 See the work
               </a>
               <a className="btn btn--ghost" href={OCEANAMI_URL}>
@@ -84,32 +83,31 @@ export default function Home() {
               <h2 id={`${s.id}-title`}>{s.title}</h2>
               <p>{s.intro}</p>
             </div>
-            <div className={`grid grid--${s.items.length}`}>
-              {s.items.map((item) => (
-                <Card key={item.id} item={item} />
-              ))}
-            </div>
-            {s.id === "robotics" && (
-              <div className="also">
-                <h3>{alsoCovered.title}</h3>
-                <ul>
-                  {alsoCovered.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
+            {s.groups.map((g, i) => (
+              <div key={i} className="group">
+                {g.wide ? (
+                  g.items.map((item) => <Card key={item.id} item={item} wide />)
+                ) : (
+                  <div className={`grid grid--${g.items.length}`}>
+                    {g.items.map((item) => (
+                      <Card key={item.id} item={item} />
+                    ))}
+                  </div>
+                )}
+                {g.points && (
+                  <div className="also">
+                    <h3>{g.points.title}</h3>
+                    <ul>
+                      {g.points.points.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </section>
         ))}
-
-        <section className="section" aria-labelledby="models-title">
-          <div className="section__head">
-            <span className="eyebrow">03</span>
-            <h2 id="models-title">3D equipment models</h2>
-            <p>Equipment modules for industrial machinery.</p>
-          </div>
-          <Card item={equipment} wide />
-        </section>
 
         <section className="callout" aria-labelledby="oceanami-title">
           <PolyArt className="callout__art" seed={89} palette={["#0c4a6e", "#0891b2", "#67e8f9"]} cols={12} rows={4} />
