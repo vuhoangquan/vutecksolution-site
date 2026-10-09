@@ -12,8 +12,12 @@ type Props = {
 // One slot for an item's visual: generated placeholder art today, a real image
 // or .glb model once one exists (set `media` in lib/content.ts).
 export default function Visual({ media, seed, palette, className = "" }: Props) {
+  const contain = media.kind === "image" && media.fit === "contain";
   return (
-    <div className={`visual ${className}`}>
+    <div
+      className={`visual${contain ? " visual--contain" : ""} ${className}`}
+      style={media.kind === "image" && media.background ? { background: media.background } : undefined}
+    >
       {media.kind === "image" && (
         <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
       )}

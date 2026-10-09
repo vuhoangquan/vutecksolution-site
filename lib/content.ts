@@ -3,13 +3,14 @@
 //
 // To swap a placeholder for a real asset, change an item's `media`:
 //   { kind: "image", src: "/images/tour.jpg", alt: "..." }
+//     (add fit: "contain" and a background to show the whole image uncropped)
 //   { kind: "model", src: "/models/arm.glb", alt: "...", poster: "/images/arm.jpg" }
 // Put files under public/. Compress models with Draco or meshopt and textures
 // as KTX2, and keep each file well under 100 MB.
 
 export type Media =
   | { kind: "placeholder" }
-  | { kind: "image"; src: string; alt: string }
+  | { kind: "image"; src: string; alt: string; fit?: "cover" | "contain"; background?: string }
   | { kind: "model"; src: string; alt: string; poster?: string };
 
 export type Palette = [string, string, string];
@@ -108,11 +109,17 @@ export const alsoCovered = {
 export const equipment: Item = {
   id: "3d-models",
   title: "Industrial equipment modules",
-  body: "Highly detailed 3D models of industrial machinery equipment modules, designed within the team.",
-  tags: ["3D modelling", "Industrial machinery", "Equipment modules"],
+  body: "Highly detailed 3D models of industrial machinery equipment modules, designed within the team. Shown: a load-bearing part modelled for 3D printing in PLA.",
+  tags: ["3D modelling", "3D printing", "Industrial machinery", "Equipment modules"],
   seed: 67,
   palette: ["#44403c", "#a8a29e", "#f59e0b"],
-  media: placeholder,
+  media: {
+    kind: "image",
+    src: "/images/3d-printed-part.png",
+    alt: "Render of a 3D-printed equipment part",
+    fit: "contain",
+    background: "#f4f2ee",
+  },
 };
 
 export const hero = {
