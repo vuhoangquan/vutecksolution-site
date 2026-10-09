@@ -357,6 +357,18 @@ h3 {
   color: var(--muted);
 }
 
+.card__link {
+  justify-self: start;
+  margin-top: 4px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;

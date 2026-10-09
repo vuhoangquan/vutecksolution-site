@@ -14,6 +14,11 @@ function Card({ item, wide = false }: { item: Item; wide?: boolean }) {
             <li key={t}>{t}</li>
           ))}
         </ul>
+        {item.link && (
+          <a className="card__link" href={item.link.href}>
+            {item.link.label} ↗
+          </a>
+        )}
       </div>
     </article>
   );
@@ -110,7 +115,7 @@ export default function Home() {
           <PolyArt className="callout__art" seed={89} palette={["#0c4a6e", "#0891b2", "#67e8f9"]} cols={12} rows={4} />
           <div className="callout__inner">
             <h2 id="oceanami-title">Oceanami</h2>
-            <p>Also on this domain: {oceanamiLabel}</p>
+            <p>The homestay's web setup, live at {oceanamiLabel}</p>
             <a className="btn" href={OCEANAMI_URL}>
               Visit Oceanami ↗
             </a>

@@ -23,6 +23,7 @@ export type Item = {
   seed: number;
   palette: Palette;
   media: Media;
+  link?: { href: string; label: string };
 };
 
 export type Section = {
@@ -61,6 +62,7 @@ export const sections: Section[] = [
         seed: 23,
         palette: ["#155e75", "#38bdf8", "#a7f3d0"],
         media: placeholder,
+        link: { href: OCEANAMI_URL, label: "Visit Oceanami" },
       },
       {
         id: "virtual-tour",
