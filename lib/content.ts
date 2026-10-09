@@ -34,7 +34,7 @@ export type Section = {
 
 const placeholder: Media = { kind: "placeholder" };
 
-export const OCEANAMI_URL = "https://oceanami.vutecksolution.com";
+export const OCEANAMI_URL = "https://oceanami.vutecksolution.com/oceanami";
 
 export const sections: Section[] = [
   {

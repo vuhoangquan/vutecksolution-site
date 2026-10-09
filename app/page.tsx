@@ -20,7 +20,15 @@ function Card({ item, wide = false }: { item: Item; wide?: boolean }) {
 }
 
 export default function Home() {
-  const oceanamiHost = new URL(OCEANAMI_URL).host;
+  // Host and path, with a line-break opportunity before the path on narrow screens.
+  const { host, pathname } = new URL(OCEANAMI_URL);
+  const oceanamiLabel = (
+    <>
+      {host}
+      <wbr />
+      {pathname}
+    </>
+  );
 
   return (
     <>
@@ -58,7 +66,7 @@ export default function Home() {
                 See the work
               </a>
               <a className="btn btn--ghost" href={OCEANAMI_URL}>
-                {oceanamiHost} ↗
+                {oceanamiLabel} ↗
               </a>
             </div>
           </div>
@@ -102,9 +110,9 @@ export default function Home() {
           <PolyArt className="callout__art" seed={89} palette={["#0c4a6e", "#0891b2", "#67e8f9"]} cols={12} rows={4} />
           <div className="callout__inner">
             <h2 id="oceanami-title">Oceanami</h2>
-            <p>Also on this domain.</p>
+            <p>Also on this domain: {oceanamiLabel}</p>
             <a className="btn" href={OCEANAMI_URL}>
-              Visit {oceanamiHost} ↗
+              Visit Oceanami ↗
             </a>
           </div>
         </section>
@@ -112,7 +120,7 @@ export default function Home() {
 
       <footer className="footer">
         <span>vutecksolution.com</span>
-        <a href={OCEANAMI_URL}>{oceanamiHost}</a>
+        <a href={OCEANAMI_URL}>{oceanamiLabel}</a>
       </footer>
     </>
   );
